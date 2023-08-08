@@ -25,6 +25,7 @@ class Director implements DirectorInterface {
     }
 }
 
+
 class Teacher implements TeacherInterface{
     workFromHome(){
         return "Cannot work from home"
@@ -46,3 +47,25 @@ function createEmployee(salary: string | number){
         return new Director();
     }
 }
+
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: Teacher | Director){
+	if(employee instanceof Director) {
+		console.log(employee.workDirectorTasks())} else if (employee instanceof Teacher) {
+	console.log(employee.workTeacherTasks());
+}}
+
+type Subjects = "Math" | "History" ;
+
+function teachClass(todayClass: Subjects){
+	if(todayClass === "Math"){
+		console.log("Teaching Math")
+	} else if (todayClass ==="History"){
+		 console.log("Teaching History")
+	}
+}
+
+

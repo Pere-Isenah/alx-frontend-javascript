@@ -34,6 +34,25 @@ function createEmployee(salary) {
         return new Director();
     }
 }
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+function isDirector(employee) {
+    return employee.workDirectorTasks !== undefined;
+}
+function executeWork(employee) {
+    if (employee instanceof Director) {
+        console.log(employee.workDirectorTasks());
+    }
+    else if (employee instanceof Teacher) {
+        console.log(employee.workTeacherTasks());
+    }
+}
+function teachClass(todayClass) {
+    if (todayClass === "Math") {
+        console.log("Teaching Math");
+    }
+    else if (todayClass === "History") {
+        console.log("Teaching History");
+    }
+}
+teachClass('Math');
+var r = teachClass('History');
+console.log(r);
